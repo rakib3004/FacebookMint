@@ -4,7 +4,8 @@
   "description": "This is a mini version of Facebook for microservice purpose",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "joi": "^17.6.0"
   },
   "devDependencies": {},
   "scripts": {
