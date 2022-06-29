@@ -1,0 +1,24 @@
+{
+  "name": "FacebookMint",
+  "version": "1.0.0",
+  "description": "This is a mini version of Facebook for microservice purpose",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rakib3004/FacebookMint.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rakib3004/FacebookMint/issues"
+  },
+  "homepage": "https://github.com/rakib3004/FacebookMint#readme"
+}
