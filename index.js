@@ -10,13 +10,28 @@ app.get('/friends', (req,res)=> {
     
 });
 
+app.get('/api/courses', (req,res)=> {
+    res.send([1,2,3,4,5,6,7,8]);
+    
+});
+
+app.get('/api/posts/:year/:month', (req,res)=> {
+    res.send(req.params);
+    
+});
+
+app.get('/api/members/:year/:month', (req,res)=> {
+    res.send(req.query);
+    
+});
 app.get('/posts', (req,res)=> {
     res.send(['Al hamdulillah 632 problem solved in codeforeces','Started School at University of Dhaka','Office Secretary at Khilkhet Pathagar','Tanguar Haor Tour','Kurmitolian Reunion 2020']);
     
 });
 
+const port = process.env.PORT || 3000;
 
-app.listen(3000,()=>{
-console.log('Facebook is running .... .... .... ....')
+app.listen(port,()=>{
+console.log(`Facebook is running at ${port} .... .... ....`)
 });
 
