@@ -1,8 +1,36 @@
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+<nav class="flex-div">
+    <div class="nav-left flex-div">
+      <img
+        src="assets/images/menu.png"
+        class="menu-icon"
+        (click)="menuButtonClickEvent()"
+      />
+      <a href="#"> <img src="assets/images/logo.png" class="logo" alt="" /> </a>
+      
+    </div>
+  
+    <div class="nav-middle flex-div">
+      <div class="search-box flex-div">
+        <input type="text" placeholder="Search" />
+        <img src="assets/images/search.png" alt="" />
+        <!-- <button class="btn btn-primary">search</button> -->
+      </div>
+    </div>
+  
+    <div class="nav-right flex-div">
+      <button  class="btn btn-success" (click)="signin()">Sign In</button>
+      <button  class="btn btn-danger " (click)="signout()">Sign Out</button>
+      <img src="assets/images/r.png" class="user-icon" alt="User-Icon">
+    </div>
+  </nav>
+  
+  <!--sidebar-->
+  <div class="sidebar" [class.small-sidebar]="click == 0">
+    <div class="shortcut-links">
+      <a href=""><img src="assets/images/home.png" /><p>Home</p></a>
+      <a href="" routerLink="favList"><img src="assets/images/favlist.png" /><p>Favourite List</p></a>
+      <a href="" routerLink="history"><img src="assets/images/history.png" /><p>History</p></a>
+      <a href="" routerLink="about-us"><img src="assets/images/about.png" /><p>About Us</p></a>
+      <hr />
+    </div>
   </div>
-</div>
