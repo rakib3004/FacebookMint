@@ -11,5 +11,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  login(){
+    if(1){
+      alert("Successful");
+      return;
+    }
+}
 
 }

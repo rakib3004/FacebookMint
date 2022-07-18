@@ -1,1 +1,40 @@
-<p>login works!</p>
+<div class="main-container">
+    <!-- main container -->
+    <div class="content">
+        <!-- logo container -->
+       <div class="left-content">
+           <div class="f-logo">
+               <img src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" alt="Facebook" />
+               <!-- <img src="assets/images/mini-logo.png" alt="Facebook" /> -->
+           </div>
+           <h2 class="f-quote">Facebook helps you connect and share with the people in your life.</h2>
+       </div>
+       <!-- login form -->
+       <div class="right-content">
+           <div class="card">
+              <!--[formGroup]="loginForm"-->
+              <form >
+                   <div class="input-container">
+                       <input type="email" formControlName="email" class="form-control" placeholder="Email address" aria-describedby="emailHelp">
+                   </div>
+                   <div class="input-container">
+                        <input type="password" placeholder="Password" formControlName="password" class="form-control" aria-describedby="passHelp">
+                    </div>
+                    <div class="login-btn-container">
+                        <button class="login-btn" (click)="login()">Log In</button>
+                    </div>
+               </form>
+  
+               <div class="forgotten-password">
+                   <a href="#">Forgotten Password?</a>
+               </div>
+  
+               <div class="divider"></div>
+  
+               <div class="" style="text-align: center;">
+                   <a class="crt-new-ac" routerLink="/register">Create New Account</a>
+               </div>
+           </div>
+       </div>
+    </div>
+  </div>
