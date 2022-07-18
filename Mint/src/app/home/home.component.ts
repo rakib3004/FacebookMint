@@ -17,8 +17,8 @@ export class HomeComponent implements OnInit {
     else this.click = 0;
   }
 
-  signin(){
-    this.router.navigateByUrl('signin');
+  login(){
+    this.router.navigateByUrl('login');
   }
 
   signup(){
