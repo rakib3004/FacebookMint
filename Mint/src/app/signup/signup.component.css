@@ -269,18 +269,18 @@ body {
   }
   
   .signbut {
-    font-size: 19px;
+    font-size: 21px;
     font-weight: 700;
     letter-spacing: 1px;
     color:#fff;
     min-width: 194px;
-    padding: 7px 20px;
+    padding: 8px 22px;
     text-align: center;
     -webkit-border-radius: 5px;
-    background: -webkit-linear-gradient(#67ae55, #578843);
-    -webkit-box-shadow: inset 0 1px 1px #a4e388;
+    background: -webkit-linear-gradient(#1ab92f, #1ab92f);
+    -webkit-box-shadow: inset 0 1px 1px #1ab92f;
     border: 1px solid;
-  border-color: #3b6e22 #3b6e22 #2c5115;
+  border-color: #1ab92f #1ab92f #1ab92f;
     margin-top: 10px;
   margin-bottom: 10px;
     text-shadow: 0 1px 2px rgba(0,0,0,.5);
@@ -288,7 +288,7 @@ body {
   }
   
   .signbut:hover {
-    background: -webkit-linear-gradient(#79bc64, #578843);
+    background: -webkit-linear-gradient(#4fc55e, #4fc55e);
   }
   
   .create {
