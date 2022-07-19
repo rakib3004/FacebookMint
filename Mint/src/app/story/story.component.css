@@ -1,0 +1,55 @@
+/* you can remove this 
+* this is only for mobile view
+*/
+html {
+    width:360px;
+ }
+ /* you can remove this */
+ 
+ .story {
+     background:white;
+     padding:10px 5px;
+ }
+ .story .story-item {
+     height: 160px;
+     border-radius: 15px;
+     background: #3e7fff;
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center center;
+     color: white;
+     position:relative;
+     font-size:13px;	
+ }  
+ .story .story-item:before {
+    content: '';
+     position: absolute;
+     top: 0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+     background-color: black;
+     opacity: .2;
+     border-radius: 15px;
+   } 
+ .story .story-item span {
+     position:absolute;bottom:0;
+     padding:10px 5px; 
+   font-family: sans-serif;
+ }
+ .story .owl-stage {
+     right: 15px;
+ }
+ 
+ .rounded {
+   background-image:url(https://any.ge/assets/images/favicon-32x32.png);
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center center;
+   width:32px;
+   height:32px;
+   margin:5px;
+   position:absolute;
+   border-radius:50%;
+  border:2px solid #3877e1;
+ }
