@@ -12,4 +12,8 @@ export class StoryComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addYourStory(){
+    alert("Owww Story!")
+  }
+
 }
