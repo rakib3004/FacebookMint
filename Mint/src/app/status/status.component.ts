@@ -11,9 +11,16 @@ export class StatusComponent implements OnInit {
 
   constructor(private statusService: StatusService) { }
   status_list: Status[]=[];
+  postStr: string = '';
+
   ngOnInit(): void {
     this.status_list = this.statusService.getStatus();
     console.log(this.status_list);
   }
+
+  postStatus() {
+    
+  }
+
 
 }
