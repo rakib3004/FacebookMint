@@ -1,55 +1,156 @@
-/* you can remove this 
-* this is only for mobile view
-*/
-html {
-    width:360px;
- }
- /* you can remove this */
- 
- .story {
-     background:white;
-     padding:10px 5px;
- }
- .story .story-item {
-     height: 160px;
-     border-radius: 15px;
-     background: #3e7fff;
-     background-repeat: no-repeat;
-     background-size: cover;
-     background-position: center center;
-     color: white;
-     position:relative;
-     font-size:13px;	
- }  
- .story .story-item:before {
-    content: '';
-     position: absolute;
-     top: 0;
-     right: 0;
-     bottom: 0;
-     left: 0;
-     background-color: black;
-     opacity: .2;
-     border-radius: 15px;
-   } 
- .story .story-item span {
-     position:absolute;bottom:0;
-     padding:10px 5px; 
-   font-family: sans-serif;
- }
- .story .owl-stage {
-     right: 15px;
- }
- 
- .rounded {
-   background-image:url(https://any.ge/assets/images/favicon-32x32.png);
-   background-repeat: no-repeat;
-   background-size: cover;
-   background-position: center center;
-   width:32px;
-   height:32px;
-   margin:5px;
-   position:absolute;
-   border-radius:50%;
-  border:2px solid #3877e1;
- }
+
+  img{
+    cursor: pointer;
+  }
+  
+  .flex-div{
+    align-items: center;
+    display: flex;
+  }
+  nav{
+    justify-content: space-between;
+    box-shadow: 0 0 5px rgb(69, 69, 69);
+    background: rgba(246, 246, 247, 0.655);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .nav-right .user-icon{
+    width: 35px;
+    border-radius: 50%;
+    margin-right: 0;
+  }
+  
+  .nav-left .logo{
+    width: 130px;
+    height: 30px;
+  }
+  
+  .nav-left .menu-icon{
+    width: 22px;
+    margin-right: 25px;
+  }
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'sans-sherif','poppins';
+    box-sizing: border-box;
+}
+.main-body{
+    background:white
+}
+.story-wrapper{
+    width: 800px;
+    height: 170px;
+    box-shadow: rgba(0,0,0,0.16) 0px 10px 36px 0px, rgba(0,0,0,0.06) 0px 0px 0px 1px;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: white;
+    border-radius: 10px;
+}
+.story{
+    width: 100%;
+    height: 170px;
+    overflow-x: auto;
+    display: flex;
+    align-items: center;
+}
+.story_s{
+    position: relative;
+    margin-left: 10px;
+    min-width: 100px;
+    max-width: 100px;
+    height: 160px;
+}
+.story-bg{
+    width: 100px;
+    height: 160px;
+    border-radius: 10px;
+}
+.story-overlay{
+    width: 100px;
+    height: 160px;
+    background-image: linear-gradient(transparent,#00000094);
+    position: absolute;
+    top: 0;
+    border-radius: 10px;
+}
+.story-text{
+    width: 100%;
+    padding: 10px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transform: translate(-50%,-50%);
+}
+.avatar{
+    border-radius: 15px;
+    padding: 4px;
+    border: 2px solid white;
+    width: 40px;
+    height: 40px;
+}
+h4{
+    color: white;
+    margin-top: 13px;
+    font-family: arial;
+    text-align: center;
+}
+.story_q{
+    position: relative;
+    height: 170px;
+    width: 100%;
+}
+.left-arrow{
+    padding: 10px;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 30%;
+    z-index: 999;
+    border-radius: 50px;
+    background: white;
+    left: -30px;
+}
+.right-arrow{
+    padding: 10px;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 30%;
+    z-index: 999;
+    border-radius: 50px;
+    background: white;
+    right: -30px;
+}
+
+/* ::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+  }
+  
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  } */
