@@ -6,8 +6,8 @@
     
       <div class="row" >
     
-        <div class="col-md-12 mb-1">
-          <div class="card" *ngForIn="let status in status_list">
+        <div class="col-md-12 mb-1 col" *ngForIn="let status in status_list">
+          <div class="card" >
             <div class="card-body">
               <h5 class="card-title">{{status.name}}</h5>
               <p class="card-text">{{status.post}}</p>
