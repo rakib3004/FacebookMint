@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StatusService } from '../Services/status.service';
+import { Status } from '../status';
 
 @Component({
   selector: 'app-status',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatusComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private statusService: StatusService) { }
+  status_list: Status[]=[];
   ngOnInit(): void {
+    this.status_list = this.statusService.getStatus();
+    console.log(this.status_list);
   }
 
 }
