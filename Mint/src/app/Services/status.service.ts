@@ -1,13 +1,16 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Status } from '../Classes/status';
+import { Status } from '../status';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StatusService {
 
-  constructor() {
-   }
+  constructor(private _http:HttpClient) { }
+
+  localhost="http://localhost:3000"
+
    status_list: Status[]=[
      {id:1,name:'Tauhidur Rahman',post:'After 4 wonderful years at UMass Amherst, I am joining the Halıcıoğlu Data Science Institute'},
      {id:2,name:'Padmanabha Chowdhury',post:'Do you have a need, a need for speed-y map tile loads? We hope the answer is yes'},
@@ -19,6 +22,10 @@ export class StatusService {
 
    getStatus(): Status[] {
     return this.status_list;
+  }
+
+  postStatus(newStatus: Status){
+    return this._http.post(this.localhost+'/status',newStatus);
   }
 
   addStatus(newStatus: Status){

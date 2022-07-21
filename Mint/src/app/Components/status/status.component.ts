@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StatusService } from '../../Services/status.service';
-import { Status } from '../../Classes/status';
+import { Status } from '../../status';
 
 @Component({
   selector: 'app-status',
@@ -17,11 +17,21 @@ export class StatusComponent implements OnInit {
     this.status_list = this.statusService.getStatus();
     console.log(this.status_list);
   }
+
+  
   newStatus = new Status();
   postStatus(newStatus: Status) {
     this.newStatus.name="Sadman Sakib";
     this.statusService.addStatus(newStatus);
     console.log(newStatus);
+   
+    const postDetails = { 
+      userName:newStatus.name,
+      userPost:newStatus.post
+    };
+    this.statusService.postStatus(newStatus).subscribe(data=>{
+      alert('New Post!!!');
+    },err=>{console.log(err)});
   }
 
 
