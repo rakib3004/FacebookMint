@@ -21,5 +21,9 @@ export class StatusService {
     return this.status_list;
   }
 
+  addStatus(newStatus: Status){
+    return this.status_list.push(newStatus);
+  }
+
 
 }

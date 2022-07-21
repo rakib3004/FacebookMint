@@ -13,8 +13,8 @@
 <div class="newsfeed post">
   <div class="input-group new-status">
 
-    <input class="form-control width100" placeholder="New Status" >
-    <button class="btn btn-success" (click)="postStatus()">Post</button>
+    <input class="form-control width100 box"   [(ngModel)]="newStatus.post" [ngModelOptions]="{ standalone: true }"placeholder="New Status" >
+    <button class="btn btn-success" (click)="postStatus(newStatus) ">Post</button>
     
     </div>
       <div *ngFor="let status of status_list">
