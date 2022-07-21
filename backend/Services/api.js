@@ -5,6 +5,9 @@ const app = express();
 
 app.use(express.json())
 
+app.post('/status', (req,result)=>{
+
+});
 
 
 const port = process.env.PORT || 3000;
