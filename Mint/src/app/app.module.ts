@@ -20,10 +20,11 @@ import { StoryComponent } from './Components/story/story.component';
     StoryComponent
   ],
   imports: [
-    BrowserModule,
+     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+  
 
   ],
   providers: [],

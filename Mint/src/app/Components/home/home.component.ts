@@ -9,13 +9,8 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   constructor(private router:Router) {}
 
-  click = 1;
-  loggedIn = 1;
 
-  menuButtonClickEvent() {
-    if (this.click == 0) this.click = 1;
-    else this.click = 0;
-  }
+
 
   login(){
     this.router.navigateByUrl('login');
@@ -25,9 +20,7 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl('signup');
   }
 
-  signout(){
-    this.router.navigate(['signin']);
-  }
+ 
 
 
   ngOnInit(): void {}

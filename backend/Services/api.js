@@ -5,9 +5,7 @@ const app = express();
 
 app.use(express.json())
 
-app.post('/status', (req,result)=>{
-console.log(req.body)
-});
+
 
 
 const mongoose = require('mongoose');
@@ -27,6 +25,13 @@ mongoose.connect('mongodb://localhost:27017/Mint',
 });
 
 
+app.post('/status', (req,result)=>{
+    console.log(req.body)
+    });
+
+app.get('/status', (req,result)=>{
+    console.log(req.body);
+});
 
 const port = process.env.PORT || 3000;
 

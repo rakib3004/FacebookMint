@@ -18,7 +18,12 @@ export class StatusComponent implements OnInit {
     console.log(this.status_list);
   }
 
-  
+  getStatus(){
+    this.statusService.getStatus().subscribe(res=>{
+   
+    })
+  }
+ 
   newStatus = new Status();
   postStatus(newStatus: Status) {
     this.newStatus.name="Sadman Sakib";
