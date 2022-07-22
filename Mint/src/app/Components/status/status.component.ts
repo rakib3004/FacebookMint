@@ -14,7 +14,7 @@ export class StatusComponent implements OnInit {
   postStr: string = '';
 
   ngOnInit(): void {
-    this.status_list = this.statusService.getStatus();
+    this.status_list = this.statusService.getRawStatus();
     console.log(this.status_list);
   }
 
@@ -22,7 +22,7 @@ export class StatusComponent implements OnInit {
   newStatus = new Status();
   postStatus(newStatus: Status) {
     this.newStatus.name="Sadman Sakib";
-    this.statusService.addStatus(newStatus);
+    this.statusService.postRawStatus(newStatus);
     console.log(newStatus);
    
     const postDetails = { 
@@ -30,7 +30,7 @@ export class StatusComponent implements OnInit {
       userPost:newStatus.post
     };
     this.statusService.postStatus(newStatus).subscribe(data=>{
-      alert('New Post!!!');
+      //alert('New Post!!!');
     },err=>{console.log(err)});
   }
 

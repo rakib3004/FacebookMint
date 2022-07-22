@@ -13,6 +13,7 @@ console.log(req.body)
 const mongoose = require('mongoose');
 
 var cors = require('cors');
+
 app.use(cors({
     origin:"http://localhost:4200"
 }))
@@ -24,8 +25,6 @@ mongoose.connect('mongodb://localhost:27017/Mint',
 ,()=>{
     console.log('database connected')
 });
-
-
 
 
 
