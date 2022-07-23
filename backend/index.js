@@ -9,7 +9,7 @@ const app = express();
 const statusRoute = require('./Routes/status');
 
 app.use(express.json())
-app.use('/status', statusRoute);
+app.use('/profile', statusRoute);
 
 const mongoose = require('mongoose');
 

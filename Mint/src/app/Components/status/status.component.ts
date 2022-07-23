@@ -14,13 +14,14 @@ export class StatusComponent implements OnInit {
   postStr: string = '';
 
   ngOnInit(): void {
-    this.status_list = this.statusService.getRawStatus();
+    //this.status_list = this.statusService.getRawStatus();
+    this.getStatus();
     console.log(this.status_list);
   }
 
   getStatus(){
     this.statusService.getStatus().subscribe(res=>{
-   
+      this.status_list = res as Status[];
     })
   }
  

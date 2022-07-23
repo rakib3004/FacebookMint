@@ -13,7 +13,8 @@ exports.postStatus = (async (req, res) => {
     });
     try {
         const savedPost = await newPost.save();
-        res.send({ post: newPost.content });
+        res.send({ post: newPost.post });
+        console.log(savedPost);
     } catch (err) {
         res.status(400).send({ Fail: 'Cannot post the content' });
     }
@@ -25,6 +26,7 @@ exports.getStatus = (async (req, res) => {
        
         const allStatus = await status.find({});      
         res.send(allStatus);
+        console.log(allStatus)
     } catch (err) {
         res.status(400).send({ Fail: 'Statuses not found' });
     }
