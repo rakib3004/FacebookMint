@@ -8,9 +8,9 @@ const statusController = require('../Controllers/status');
 
 
 
-router.post('/status', homeController.postStatus);
+router.post('/status', statusController.postStatus);
 
-router.get('/status', homeController.getStatus);
+router.get('/status', statusController.getStatus);
 
 
 
