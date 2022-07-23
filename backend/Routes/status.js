@@ -6,12 +6,9 @@ const statusController = require('../Controllers/status');
 
 
 
-
-
 router.post('/status', statusController.postStatus);
 
 router.get('/status', statusController.getStatus);
-
 
 
 module.exports = router;
