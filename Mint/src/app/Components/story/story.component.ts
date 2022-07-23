@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FileUploadService } from 'src/app/Services/file-upload.service';
 
 @Component({
   selector: 'app-story',
@@ -9,7 +8,7 @@ import { FileUploadService } from 'src/app/Services/file-upload.service';
 export class StoryComponent implements OnInit {
 
     // Inject service 
-    constructor(private fileUploadService: FileUploadService) { }
+    constructor() { }
   
     ngOnInit(): void {
     }

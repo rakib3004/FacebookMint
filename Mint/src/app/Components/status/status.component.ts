@@ -20,8 +20,9 @@ export class StatusComponent implements OnInit {
   }
 
   getStatus(){
-    this.statusService.getStatus().subscribe(res=>{
-      this.status_list = res as Status[];
+    this.statusService.getStatus().subscribe((data)=>{
+      console.log('[Data Transaction => Component.Status]')
+      this.status_list = data.body;
     })
   }
  

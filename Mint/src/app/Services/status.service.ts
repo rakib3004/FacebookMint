@@ -26,10 +26,11 @@ export class StatusService {
   }
 
   getStatus(): Observable<any>{
-      return this._http.get(this.localhost+'/status');
+    console.log('[Data Transaction => Service.Status]')
+      return this._http.get<Status>('http://localhost:3000/profile/status');
   }
   postStatus(newStatus: Status){
-    return this._http.post(this.localhost+'/status',newStatus);
+    return this._http.post('http://localhost:3000/profile/status',newStatus);
   }
 
   postRawStatus(newStatus: Status){
