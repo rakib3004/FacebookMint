@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Status } from '../status';
@@ -20,6 +20,12 @@ export class StatusService {
      {name:'Microsoft',post:'Made my way to our Microsoft Dublin office during my recent vacation had a wonderful time exploring and meeting some friendly faces!'},
    ];
 
+   headers = new HttpHeaders({
+    'Content-Type':'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+    'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
+  }); 
 
    getRawStatus(): Status[] {
     return this.status_list;
@@ -27,7 +33,7 @@ export class StatusService {
 
   getStatus(): Observable<any>{
     console.log('[Data Transaction => Service.Status]')
-      return this._http.get<Status>('http://localhost:3000/profile/status');
+      return this._http.get<Status>('http://localhost:3000/profile/status',{headers : this.headers, observe: "response"});
   }
   postStatus(newStatus: Status){
     return this._http.post('http://localhost:3000/profile/status',newStatus);
