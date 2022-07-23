@@ -29,7 +29,7 @@ export class StatusComponent implements OnInit {
   newStatus = new Status();
   postStatus(newStatus: Status) {
     this.newStatus.name="Sadman Sakib";
-    this.statusService.postRawStatus(newStatus);
+    //this.statusService.postRawStatus(newStatus);
     console.log(newStatus);
    
     const postDetails = { 

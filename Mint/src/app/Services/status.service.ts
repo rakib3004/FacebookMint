@@ -36,7 +36,7 @@ export class StatusService {
       return this._http.get<Status>('http://localhost:3000/profile/status',{headers : this.headers, observe: "response"});
   }
   postStatus(newStatus: Status){
-    return this._http.post('http://localhost:3000/profile/status',newStatus);
+    return this._http.post('http://localhost:3000/profile/status',newStatus, {headers : this.headers});
   }
 
   postRawStatus(newStatus: Status){
