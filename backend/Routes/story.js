@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
 const router = require('express').Router();
-const statusModels = require('../Models/status');
-const statusController = require('../Controllers/status');
+const storyModels = require('../Models/story');
+const storyController = require('../Controllers/story');
 
 
-router.post('/status', statusController.postStatus);
+router.post('/story', storyController.postStory);
 
-router.get('/status', statusController.getStatus);
+router.get('/story', storyController.getStory);
 
 module.exports = router;

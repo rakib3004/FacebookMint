@@ -1,16 +1,15 @@
 const mongoose = require('mongoose');
 
-const statusSchema = new mongoose.Schema({
+const storySchema = new mongoose.Schema({
     name:{
         type: String,
         required: true
     },
-    post:{
+    storyUUID:{
         type: String,
         required: true
-    }
-    
+    },
    
 });
 
-module.exports = mongoose.model('status', statusSchema);
+module.exports = mongoose.model('story', storySchema);
