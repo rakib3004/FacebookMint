@@ -7,9 +7,13 @@ const app = express();
 
 
 const statusRoute = require('./Routes/status');
+const storyRoute = require('./Routes/story');
+
 
 app.use(express.json())
 app.use('/profile', statusRoute);
+app.use('/profile', storyRoute);
+
 
 const mongoose = require('mongoose');
 

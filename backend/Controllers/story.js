@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const status = require('../Models/status');
+const story = require('../Models/story');
 
 
 
 
-exports.postStatus = (async (req, res) => {
+exports.postStory = (async (req, res) => {
     //Create a new post
-    const newPost = new status({
+    const newPost = new story({
         name: req.body.name,
         post: req.body.post,
        
@@ -20,15 +20,15 @@ exports.postStatus = (async (req, res) => {
     }
 });
 
-exports.getStatus = (async (req, res) => {
+exports.getStory = (async (req, res) => {
 
     try {
        
-        const allStatus = await status.find({});      
-        res.send(allStatus);
-        console.log(allStatus)
+        const allStory = await story.find({});      
+        res.send(allStory);
+        console.log(allStory)
     } catch (err) {
-        res.status(400).send({ Fail: 'Statuses not found' });
+        res.status(400).send({ Fail: 'Storyes not found' });
     }
 
 });
