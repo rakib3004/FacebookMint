@@ -11,6 +11,7 @@ export class StatusComponent implements OnInit {
 
   constructor(private statusService: StatusService) { }
   status_list: Status[]=[];
+  statusArray:any;
   postStr: string = '';
 
   ngOnInit(): void {
@@ -20,9 +21,9 @@ export class StatusComponent implements OnInit {
   }
 
   getStatus(){
-    this.statusService.getStatus().subscribe((data)=>{
+    this.statusService.getStatus().subscribe((data:any)=>{
       console.log('[Data Transaction => Component.Status]')
-      this.status_list = data.body;
+     this.status_list = data;
     })
   }
  
