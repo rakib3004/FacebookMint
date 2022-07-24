@@ -3,7 +3,6 @@ const status = require('../Models/status');
 
 
 
-
 exports.postStatus = (async (req, res) => {
     //Create a new post
     const newPost = new status({
@@ -24,9 +23,11 @@ exports.getStatus = (async (req, res) => {
 
     try {
        
-        const allStatus = await status.find({});      
-        res.send(allStatus);
-        console.log(allStatus)
+        const allStatus = await status.find();      
+        console.log(allStatus);
+        
+        res.json(allStatus);
+        // console.log(allStatus)
     } catch (err) {
         res.status(400).send({ Fail: 'Statuses not found' });
     }
