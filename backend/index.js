@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 
+const Minio = require('minio');
 
 
 
@@ -31,14 +32,14 @@ mongoose.connect('mongodb://localhost:27017/Mint',
     console.log('database connected')
 });
 
-
-app.post('/status', (req,result)=>{
-    console.log(req.body)
-    });
-
-app.get('/status', (req,result)=>{
-    console.log(req.body);
+const minioClient = new Minio.Client({
+    endPoint: '127.0.0.1',
+    port: 9000,
+    useSSL: false,
+    accessKey: process.env.ACCESS_KEY,
+    secretKey: process.env.SECRET_KEY
 });
+
 
 const port = process.env.PORT || 3000;
 
