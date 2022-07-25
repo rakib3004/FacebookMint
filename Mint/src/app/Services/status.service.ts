@@ -32,7 +32,12 @@ export class StatusService {
   }
 
   getStatus(): Observable<any>{
+<<<<<<< HEAD
       return this._http.get<Status>(`${this.localhost}/profile/status`);//,{headers : this.headers, observe: "response"}
+=======
+    console.log('[Data Transaction => Service.Status]')
+      return this._http.get('http://localhost:3000/profile/status',{headers : this.headers, observe: "response"});
+>>>>>>> d91df3d7f6203e449181d8e0231ed3ee821b262f
   }
   postStatus(newStatus: Status){
     console.log('[Service.Status]')

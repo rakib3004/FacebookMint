@@ -10,8 +10,13 @@ import { Status } from '../../status';
 export class StatusComponent implements OnInit {
 
   constructor(private statusService: StatusService) { }
+<<<<<<< HEAD
   status_list: any;
   allStatus: Status[] = [];
+=======
+  status_list: Status[]=[];
+  statusArray:any;
+>>>>>>> d91df3d7f6203e449181d8e0231ed3ee821b262f
   postStr: string = '';
 
   ngOnInit(): void {
@@ -21,10 +26,16 @@ export class StatusComponent implements OnInit {
   }
 
   getStatus(){
+<<<<<<< HEAD
     this.statusService.getStatus().subscribe((data)=>{
       this.status_list = data.body;
       this.allStatus = this.status_list;
       console.log(JSON.stringify(this.allStatus));
+=======
+    this.statusService.getStatus().subscribe((data:any)=>{
+      console.log('[Data Transaction => Component.Status]')
+     this.status_list = data;
+>>>>>>> d91df3d7f6203e449181d8e0231ed3ee821b262f
     })
   }
  
