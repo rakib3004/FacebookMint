@@ -10,7 +10,7 @@ import { Status } from '../../status';
 export class StatusComponent implements OnInit {
 
   constructor(private statusService: StatusService) { }
-  status_list: any;
+  status_list: Status[] = [];
   allStatus: Status[] = [];
   
   postStr: string = '';
@@ -23,10 +23,12 @@ export class StatusComponent implements OnInit {
 
   getStatus(){
 
-    this.statusService.getStatus().subscribe((data:any)=>{
+  /*  this.statusService.getStatus().subscribe((data:any)=>{
       console.log('[Data Transaction => Component.Status]')
      this.status_list = data;
-    })
+    })*/
+    
+  this.status_list=  this.statusService.getRawStatus();
   }
  
   newStatus = new Status();

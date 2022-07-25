@@ -8,7 +8,7 @@ import { Status } from '../status';
 })
 export class StatusService {
 
-  constructor(private _http:HttpClient) { }
+  constructor(private http:HttpClient) { }
 
   localhost="http://localhost:3000"
 
@@ -34,11 +34,12 @@ export class StatusService {
   getStatus(): Observable<any>{
 
     console.log('[Data Transaction => Service.Status]')
-      return this._http.get('http://localhost:3000/profile/status',{headers : this.headers, observe: "response"});
+      console.log(this.http.get<Status>('http://localhost:3000/profile/status',{headers : this.headers, observe: "response"}));
+      return this.http.get<Status>('http://localhost:3000/profile/status',{headers : this.headers, observe: "response"});
   }
   postStatus(newStatus: Status){
     console.log('[Service.Status]')
-    return this._http.post('http://localhost:3000/profile/status',newStatus, {headers : this.headers});
+    return this.http.post('http://localhost:3000/profile/status',newStatus, {headers : this.headers});
   }
 
   postRawStatus(newStatus: Status){

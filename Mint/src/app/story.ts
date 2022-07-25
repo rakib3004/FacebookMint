@@ -1,4 +1,4 @@
-export class Stroy
+export class Story
 {
 
     userName: string ="";
