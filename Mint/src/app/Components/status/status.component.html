@@ -17,7 +17,7 @@
     <button class="btn btn-success" (click)="postStatus(newStatus) ">Post</button>
     
     </div>
-      <div *ngFor="let status of status_list">
+      <div *ngFor="let status of allStatus">
         <div class="row card">
               <h5 class="card-title">{{status.name}}</h5>
               <p class="card-text">{{status.post}}</p>
