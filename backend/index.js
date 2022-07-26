@@ -7,6 +7,8 @@ const mongoose = require('mongoose');
 
 const cors = require('cors'); 
 
+var bodyParser = require('body-parser')
+
 
 const statusRoute = require('./Routes/status');
 const storyRoute = require('./Routes/story');
@@ -17,12 +19,18 @@ const userRoute = require('./Routes/auth')
 const app = express();
 app.use(cors({origin: '*'}));
 
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
+
 app.use(express.json())
 app.use(passport.initialize());
 app.use('/profile', statusRoute);
 app.use('/profile', storyRoute);
 app.use('/profile', userRoute);
 
+console.log('Auth Index Backend')    
 
 
 

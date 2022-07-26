@@ -16,31 +16,25 @@ module.exports.register = (req, res, next) => {
             if (err.code == 11000)
                 res.status(422).send(['Email address already used!!!!']);
             else
-                return next(err);
+                return next();
         }
     });
 }
 
 
-module.exports.authenticate = (req, res, next) => {
+module.exports.authenticate = (req, res) => {
+    hashPass = req.body.pass
+    User.findOne
     // call for passport authentication
-    passport.authenticate('local', (err, user, info) => {       
-        // error from passport middleware
-        if (err) return res.status(400).json(err);
-        // registered user
-        else if (user) return res.status(200).json({ "token": user.generateJwt(),"currentUser":req.body.email });
-        // unknown user or wrong password
-        else return res.status(404).json(info);
-    })(req, res);
+    // passport.authenticate('local', (err, user, info) => {   
+    //     console.log('Auth Controllers')    
+    //     // error from passport middleware
+    //     if (err) return res.status(400).json(err);
+    //     // registered user
+    //     else if (user) return res.status(200).json({ "token": user.generateJwt(),"currentUser":req.body.email });
+        
+    //     // unknown user or wrong password
+    //     else return res.status(404).json(info);
+    // })(req, res);
 }
 
-module.exports.userProfile = (req, res, next) =>{
-    User.findOne({ _id: req._id },
-        (err, user) => {
-            if (!user)
-                return res.status(404).json({ status: false, message: 'User record not found.' });
-            else
-                return res.status(200).json({ status: true, user : _.pick(user,['email']) });
-        }
-    );
-}

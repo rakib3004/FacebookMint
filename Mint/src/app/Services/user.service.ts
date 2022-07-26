@@ -12,6 +12,8 @@ export class UserService {
   constructor(private _http:HttpClient) { }
 
   postUser(user:any){
+    console.log('Auth Service')    
+
     return this._http.post(environment.url+'/register',user,this.noAuthHeader);
   }
 

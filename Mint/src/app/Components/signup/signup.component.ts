@@ -25,7 +25,7 @@ export class SignupComponent implements OnInit {
   }
 
   moveToLogin(){
-    this._router.navigate(['/login']);
+    this._router.navigate(['login']);
   }
 
   register(){
