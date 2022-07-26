@@ -3,6 +3,22 @@
     padding: 0;
 }
 
+.alert-box-container{
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+  }
+    /* The alert message box */
+  .alert {
+    max-width: 400px;
+    max-height: 50px;
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
 
 .main-container{
     background: #f0f2f5;
