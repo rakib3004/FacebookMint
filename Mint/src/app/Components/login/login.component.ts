@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -8,15 +10,35 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router : Router) {}
-  ngOnInit(): void {
+  serverErrorMessages: string = 'false';
+
+  loginForm : FormGroup=new FormGroup({
+    email:new FormControl(null,[Validators.email,Validators.required]),
+    password:new FormControl(null, Validators.required)
+  });
+  constructor(private _router:Router,private userService:UserService) { }
+
+  ngOnInit() {
+    if(this.userService.isLoggedIn())
+    this._router.navigateByUrl('');
   }
+
   signup(){
-    this.router.navigateByUrl('signup');
+    this._router.navigate(['/signup']);
   }
+  
 
-login(){
-  this.router.navigateByUrl('');
-}
+  login(){
+    this.userService.login(this.loginForm.value).subscribe(
+      (res:any) => {
+        //this.userService.setCurrentUser(res['currentUser']);
+        this.userService.setToken(res['token']);
+        this._router.navigateByUrl('/home');
+      },
+      err => {
+        this.serverErrorMessages = err.error.message;
+      }
+    );
 
+    }
 }

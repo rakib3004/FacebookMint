@@ -1,15 +1,9 @@
 const mongoose = require('mongoose');
 
-const storySchema = new mongoose.Schema({
-    name:{
-        type: String,
-        required: true
-    },
-    storyUUID:{
-        type: String,
-        required: true
-    },
-   
+const schema = mongoose.Schema({
+    email:{type: String,required: true},
+    storyUUID:{type: String,required: true},
+    time:{type: Date,default: Date.now,required: true}
 });
 
-module.exports = mongoose.model('story', storySchema);
+module.exports = mongoose.model('Story',schema); 

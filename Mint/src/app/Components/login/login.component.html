@@ -1,3 +1,5 @@
+
+
 <div class="main-container">
     <!-- main container -->
     <div class="content">
@@ -5,17 +7,21 @@
        <div class="left-content">
            <div class="f-logo">
                <img src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" alt="Facebook" />
-               <!-- <img src="assets/images/mini-logo.png" alt="Facebook" /> -->
            </div>
            <h2 class="f-quote">Facebook helps you connect and share with the people in your life.</h2>
        </div>
        <!-- login form -->
        <div class="right-content">
+        <div class="alert-box-container">
+            <div class="alert" *ngIf="serverErrorMessages!='false'">
+                {{serverErrorMessages}}
+            </div>
+          </div>
            <div class="card">
-              <!--[formGroup]="loginForm"-->
-              <form >
+
+               <form [formGroup]="loginForm">
                    <div class="input-container">
-                       <input type="email" formControlName="email" class="form-control" placeholder="Email address or phone number" aria-describedby="emailHelp">
+                       <input type="email" formControlName="email" class="form-control" placeholder="Email address" aria-describedby="emailHelp">
                    </div>
                    <div class="input-container">
                         <input type="password" placeholder="Password" formControlName="password" class="form-control" aria-describedby="passHelp">
@@ -25,14 +31,14 @@
                     </div>
                </form>
   
-               <div class="forgotten-password">
+               <!-- <div class="forgotten-password">
                    <a href="#">Forgotten Password?</a>
-               </div>
+               </div> -->
   
                <div class="divider"></div>
   
                <div class="" style="text-align: center;">
-                   <a class="crt-new-ac" style="color:white;" (click)="signup()">Create New Account</a>
+                   <a class="crt-new-ac" routerLink="/signup">Create New Account</a>
                </div>
            </div>
        </div>

@@ -1,16 +1,10 @@
-const mongoose = require('mongoose');
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-const statusSchema = new mongoose.Schema({
-    name:{
-        type: String,
-        required: true
-    },
-    post:{
-        type: String,
-        required: true
-    }
-    
-   
+var schema = new Schema({
+    email : {type:String, require:true},
+    text:{type:String, require:true},
+    time:{type:Date, require:true}
 });
 
-module.exports = mongoose.model('status', statusSchema);
+module.exports = mongoose.model('status',schema);
