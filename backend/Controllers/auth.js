@@ -1,76 +1,45 @@
-const router = require('express').Router();
-const user = require('../model/user');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
-const localStorage = require('node-localstorage');
-const {registerValidation, loginValidation}  = require('../validation');
+const mongoose = require('mongoose');
+const passport = require('passport');
+const _ = require('lodash');
 
+const User = mongoose.model('User');
 
-exports.getRegistered = (async (req,res)=>{
-
-    //Validate first
-    const {error} = registerValidation(req.body); 
-    if(error) return res.status(400).send(error.details[0].message);
-
-    //Check if already exists
-    const emailExists = await user.findOne({email:req.body.email});
-    if(emailExists) return res.status(400).json('Email already exists');
-
-    //Hash the password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(req.body.password,salt);
-
-
-    //Create a new user
-    const newuser = new user({
-        name: req.body.name,
-        email: req.body.email,
-        password: hashedPassword,
-        dob: req.body.dob
+module.exports.register = (req, res, next) => {
+    var user = new User();
+    user.email = req.body.email;
+    user.password = req.body.password;
+    user.save((err, doc) => {
+        if (!err)
+            res.send(doc);
+        else {
+            if (err.code == 11000)
+                res.status(422).send(['Email address already used!!!!']);
+            else
+                return next(err);
+        }
     });
-    try{
-        const savedUser = await newuser.save();
-        res.send({user: newuser._id});
-    } catch(err){
-        res.status(400).send(err);
-    }
-});
-
-exports.getLoggedIn = (async (req,res)=>{
-    //Validate first
-    const {error} = loginValidation(req.body); 
-    if(error) return res.status(400).send(error.details[0].message);
-
-    //Check if already exists
-    const loginUser = await user.findOne({email:req.body.email});
-    if(!loginUser) return res.status(400).json('Email or password is wrong!');
-    //Check if password is correct
-    const validPass = await bcrypt.compare(req.body.password, loginUser.password);
-    if(!validPass) return res.status(400).json('Invalid Password!');
+}
 
 
-    //Create and assign json web token
-    const token = jwt.sign({_id: loginUser._id}, process.env.TOKEN_SECRET);
-    res.header('auth-token',token).json({token: token, _id: loginUser._id});
-    // res.send({Success: 'Logged In!'});
-});
+module.exports.authenticate = (req, res, next) => {
+    // call for passport authentication
+    passport.authenticate('local', (err, user, info) => {       
+        // error from passport middleware
+        if (err) return res.status(400).json(err);
+        // registered user
+        else if (user) return res.status(200).json({ "token": user.generateJwt(),"currentUser":req.body.email });
+        // unknown user or wrong password
+        else return res.status(404).json(info);
+    })(req, res);
+}
 
-
-exports.getUserProfile = (async (req, res) => {
-    try{
-      const getUser = await user.findById({_id: req.params._id});
-      exports.loggedInUser = getUser;
-      res.json(getUser);
-    } catch(err){
-      res.status(400).send({NotFound: 'Nothing Found'});
-    }
-});
-
-exports.getAllUsers = (async(req,res) =>{
-    try{
-        const getAllUsers = await user.find();
-        res.json(getAllUsers);
-    } catch (err){
-        res.status(400).json('Users not found');
-    }
-})
+module.exports.userProfile = (req, res, next) =>{
+    User.findOne({ _id: req._id },
+        (err, user) => {
+            if (!user)
+                return res.status(404).json({ status: false, message: 'User record not found.' });
+            else
+                return res.status(200).json({ status: true, user : _.pick(user,['email']) });
+        }
+    );
+}

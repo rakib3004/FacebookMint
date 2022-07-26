@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 var Minio = require("minio");
-var story = require('../models/story');
+var story = require('../Models/story');
 const crypto = require('crypto');
 
 module.exports.saveStory = (async (req, res) => {
