@@ -3,7 +3,7 @@ var Minio = require("minio");
 var story = require('../Models/story');
 const crypto = require('crypto');
 
-module.exports.saveStory = (async (req, res) => {
+module.exports.postStory = (async (req, res) => {
     //connect to minio
     const minioClient = new Minio.Client({
         endPoint: '127.0.0.1',
@@ -33,7 +33,7 @@ module.exports.saveStory = (async (req, res) => {
     }
 });
 
-module.exports.getStories = (async (req,res) =>{
+module.exports.getStory = (async (req,res) =>{
     try{
         const Stories = await story.find({email:{$ne: req.params.currentUser}}).sort({$natural:-1}).limit(10); 
         res.send(Stories);

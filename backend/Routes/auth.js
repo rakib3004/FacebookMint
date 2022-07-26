@@ -1,30 +1,16 @@
 const router = require('express').Router();
-const authController = require('../controllers/authController');
+const authController = require('../Controllers/auth');
 
 
-router.post('/register', authController.getRegistered);
-
-router.post('/login', authController.getLoggedIn);
-
-router.get('/user-profile/:_id', authController.getUserProfile);
-
-router.get('/users', authController.getAllUsers);
-
-module.exports = router;
-
-
-const express = require('express');
-
-const ctrlUser = require('../Controllers/auth');
 const jwtHelper = require('../config/jwtHelper');
 
 
 
 
-router.post('/register', ctrlUser.register);
-router.post('/authenticate', ctrlUser.authenticate);
+router.post('/register', authController.register);
+router.post('/authenticate', authController.authenticate);
 
-router.get('/userProfile',jwtHelper.verifyJwtToken, ctrlUser.userProfile);
+router.get('/userProfile',jwtHelper.verifyJwtToken, authController.userProfile);
 
 module.exports = router;
 
