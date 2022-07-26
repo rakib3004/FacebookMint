@@ -16,15 +16,15 @@ export class LoginComponent implements OnInit {
     email:new FormControl(null,[Validators.email,Validators.required]),
     password:new FormControl(null, Validators.required)
   });
-  constructor(private _router:Router,private userService:UserService) { }
+  constructor(private router:Router,private userService:UserService) { }
 
   ngOnInit() {
     if(this.userService.isLoggedIn())
-    this._router.navigateByUrl('');
+    this.router.navigateByUrl('');
   }
 
   signup(){
-    this._router.navigate(['/signup']);
+    this.router.navigate(['/signup']);
   }
   
 
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       (res:any) => {
         //this.userService.setCurrentUser(res['currentUser']);
         this.userService.setToken(res['token']);
-        this._router.navigateByUrl('/home');
+        this.router.navigateByUrl('/home');
       },
       err => {
         this.serverErrorMessages = err.error.message;

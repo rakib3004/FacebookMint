@@ -15,7 +15,7 @@ module.exports.postStory = (async (req, res) => {
 
     var uuidName = crypto.randomUUID();
     console.log(JSON.stringify(req.file))
-    minioClient.fPutObject('stories', uuidName, req.file.path, function (err, objInfo) {
+    minioClient.fPutObject('story', uuidName, req.file.path, function (err, objInfo) {
         if(err) {return console.log(err)}
     });
 
