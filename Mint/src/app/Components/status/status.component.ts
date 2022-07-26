@@ -18,7 +18,7 @@ export class StatusComponent implements OnInit {
   ngOnInit(): void {
     //this.status_list = this.statusService.getRawStatus();
     this.getStatus();
-    console.log(this.status_list);
+    //console.log(this.status_list);
   }
 
   getStatus(){

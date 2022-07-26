@@ -11,8 +11,11 @@
                 <img class="story-bg" src="assets/bsse1129.jpg" alt="">
                 <div class="story-overlay"></div>
                 <div class="story-text">
-                    <!-- <img src="assets/bsse1129.jpg" (click)="saveStory($event)" alt="" class="avatar"> -->
-                    <input type="file" accept="image/*" (change)="saveStory($event)">
+                    <div class="container">
+                        <img src="assets/add.png"  alt="" class="avatar">
+                       <input type="file" accept="image/*" (change)="saveStory($event)"> 
+                    </div>
+                   
                     <h4>Add to Story</h4>
                 </div>
             </div>

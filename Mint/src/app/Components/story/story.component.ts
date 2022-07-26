@@ -32,7 +32,6 @@ export class StoryComponent implements OnInit {
     this.getCurrentUser();
   }
 
-  //getCurrentUserProfile
   getCurrentUser(){
     this.userService.getUserProfile().subscribe(
       (res:any) => {
