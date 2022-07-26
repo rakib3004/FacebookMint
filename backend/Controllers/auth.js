@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const passport = require('passport');
 const _ = require('lodash');
+require('../Models/user');
 
-const User = mongoose.model('user');
+const User = mongoose.model('User');
 
 module.exports.register = (req, res, next) => {
     var user = new User();

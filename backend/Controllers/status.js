@@ -1,36 +1,29 @@
-const router = require('express').Router();
-const status = require('../Models/status');
+const mongoose = require('mongoose');
+var status = require('../Models/status');
 
-
-
-exports.postStatus = (async (req, res) => {
-    //Create a new post
-    const newPost = new status({
-        name: req.body.name,
-        post: req.body.post,
-       
+module.exports.postStatus = (req, res, next) => {
+    // call for passport authentication
+    var newStatus = new Status({
+        email: req.body.email,
+        text: req.body.text,
+        time: Date.now()
     });
-    try {
-        const savedPost = await newPost.save();
-        res.send({ post: newPost.post });
-        console.log(savedPost);
-    } catch (err) {
-        res.status(400).send({ Fail: 'Cannot post the content' });
-    }
-});
+  
+    let promise = newStatus.save();
 
-exports.getStatus = (async (req, res) => {
+    promise.then((doc=>{
+        return res.status(201).json(doc);
+    }))
+  
+    promise.catch((err=>{
+        return res.status(501).json(err);
+    }))
+}
 
-    try {
-       
-        const allStatus = await status.find();      
-        console.log(allStatus);
-        
-        res.json(allStatus);
-        // console.log(allStatus)
-    } catch (err) {
-        res.status(400).send({ Fail: 'Statuses not found' });
-    }
-
-});
-
+module.exports.getStatus = (req, res, next) => {
+    console.log(req.params.currentUser);
+    let postList = status.find({email:{$ne: req.params.currentUser}}).limit(10).sort({$natural:-1});
+    postList.exec((req, doc) =>{
+        return res.status(200).json(doc);
+    })
+}
